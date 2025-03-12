@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-project';
+  listOfString: string[] = ['mark', 'john', 'harry', 'abc', 'pqr']
 }

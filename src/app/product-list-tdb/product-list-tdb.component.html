@@ -1,0 +1,29 @@
+<!-- Combination Of Property Binding and Event Binding -->
+ <!-- <h3>Combination Of Property Binding and Event Binding</h3>
+<div class="search-product">
+  <input type="text" class="search-product-input" [value]="searchText" (input)="updateSearchText($event)">
+  <button class="btn btn-search">Search</button>
+</div>
+
+<div class="search-result-for"><span><strong>Search result for: </strong></span>{{  searchText  }}</div>
+<hr> -->
+
+
+<!-- Using ng model -->
+ <h3>Using ng model</h3>
+<div class="search-product">
+  <input type="text" class="search-product-input" [(ngModel)] = "searchText">
+  <button [ngClass]="{'btn': true, 'btn-search':searchText, 'btn-search-disabled':!searchText}" [disabled] = "!searchText">Search</button>
+</div>
+
+<div class="search-result-for"><span *ngIf=" searchText != '' "><strong>Search result for: </strong></span>{{  searchText  }}</div>
+
+<!-- ngSwitch -->
+<div [ngSwitch]="fruit"> <!-- ngSwitch -->
+  <p *ngSwitchCase="'Apple'">This is Apple</p> <!-- ngSwitchCase -->
+  <p *ngSwitchCase="'Banana'">This is Banana</p> 
+  <p *ngSwitchCase="'Orange'">This is Orange</p>
+  <p *ngSwitchDefault>Please enter valid input</p> <!-- ngSwitchDefault -->
+</div>
+
+<div class="inStock" [ngStyle]="{fontWeight: 'bold', color: inStock ? 'Green' : 'Red'}">{{ inStock ? 'Avialble in stock' : 'Not avialble in stock'}}</div>

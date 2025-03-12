@@ -1,0 +1,90 @@
+.background-image {
+    background-image: url('/assets/reg.avif');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // margin-top: 2%;
+}
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    color: #495057;
+}
+
+.form-group input,
+.form-group .form-check-input {
+    border-radius: 5px;
+    box-shadow: none;
+}
+
+.form-group {
+    margin-bottom: 0.8rem;
+}
+
+input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.form-check-label {
+    margin-left: 10px;
+    color: #495057;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.card-shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    border-radius: 15px;
+}
+
+@media (max-width: 767px) {
+    .card {
+        margin: 15px;
+    }
+}
+
+.mb-2{
+    margin-top: -5%;
+}
+
+.form-shadow{
+    box-shadow: rgba(27, 27, 27, 0.35)0px 5px 30px;
+}
+
+.gender{
+    font-weight: bold;
+    margin-right: 2%;
+}
+
+input.ng-invalid.ng-touched{
+    border: red 2px solid;
+}
+
+small{
+    color: red;
+    font-weight: bold;
+}

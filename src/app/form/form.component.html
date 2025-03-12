@@ -1,0 +1,92 @@
+<div class="background-image">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h2 class="text-center mb-2 text-black">Template Driven Form</h2>
+
+        <div class="card  form-container" [ngClass]="{'form-shadow':registrationForm.touched}">
+          <div class="card-body">
+            <h2 class="text-center mb-2 text-black">Register Here</h2>
+
+            <!-- Template Form -->
+            <form (ngSubmit)="OnFormSubmitted(registrationForm)" #registrationForm="ngForm">
+              <!-- firstname -->
+              <div class="form-group">
+                <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstname" [(ngModel)]="firstName"
+                  required #fname="ngModel">
+
+                <!-- custom validation -->
+                <div>
+                  <small *ngIf="fname.invalid && fname.touched">*First name is required field.</small>
+                  <span *ngIf="firstName">First Name: {{ firstName }}</span>
+                </div>
+              </div>
+
+              <!-- lastname -->
+              <div class="form-group">
+                <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastname" [(ngModel)]="lastName"
+                  required #lname="ngModel">
+
+                <!-- custom validation -->
+                <div>
+                  <small *ngIf="lname.invalid && lname.touched">*Last name is required field.</small>
+                  <span *ngIf="lastName">Last Name : {{ lastName }}</span>
+                </div>
+              </div>
+
+              <!-- email -->
+              <div class="form-group">
+                <input type="email" class="form-control" id="email" placeholder="Email" name="email" [(ngModel)]="email" required
+                  email #myEmail="ngModel">
+
+                <!-- custom validation -->
+                <div>
+                  <small *ngIf="myEmail.invalid && myEmail.touched">*Enter email is not valid.</small>
+                  <span *ngIf="email">Email : {{ email }}</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <input type="date" class="form-control" id="dob" placeholder="Date of Birth" name="dob" ngModel>
+              </div>
+
+              <div class="form-group">
+                <label class="text-black gender">Gender:</label>
+                <div class="form-check form-check-inline" *ngFor="let gen of genders">
+                  <input class="form-check-input" type="radio" name="gender" [id]="gen.id" [value]="gen.id" ngModel>
+                  <label class="form-check-label text-black" [for]="gen.id">{{ gen.display }}</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" id="address" placeholder="Address" name="address" ngModel>
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" id="country" placeholder="Country" name="country" ngModel>
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" id="city" placeholder="City" name="city" ngModel>
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" id="region" placeholder="Region" name="region" ngModel>
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" id="postalCode" placeholder="Postal Code" name="postal" ngModel>
+              </div>
+
+              <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary btn-block"
+                  [disabled]="!registrationForm.valid">Submit</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
