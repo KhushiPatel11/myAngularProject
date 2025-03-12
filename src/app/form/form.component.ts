@@ -14,12 +14,10 @@ export class FormComponent {
     console.log(form.value.firstname);
   }
 
-
   firstName:string = '';
   lastName:string = '';
   email:string = '';
 
-  
   genders = [
     {id: 'check-male', value: 'male', display: 'Male'},
     {id: 'check-female', value: 'fmale', display:'Female'},

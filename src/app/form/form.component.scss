@@ -1,17 +1,16 @@
 .background-image {
-    background-image: url('/assets/reg.avif');
+    background-image:  linear-gradient(rgba(232, 233, 236, 0.7), rgba(4, 9, 30, .7)),url('/assets/reg.avif');
     background-size: cover;
     background-position: center;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    // margin-top: 2%;
 }
 
 .form-container {
     background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(-60px);
     padding: 2rem;
     border-radius: 15px;
 }
@@ -47,6 +46,7 @@ input:focus {
     padding: 10px;
     border-radius: 5px;
     transition: background-color 0.3s;
+    width: 100%;
 }
 
 .btn-primary:hover {
@@ -84,7 +84,26 @@ input.ng-invalid.ng-touched{
     border: red 2px solid;
 }
 
+select.ng-invalid.ng-touched{
+    border: red 2px solid;
+}
+
 small{
     color: red;
     font-weight: bold;
 }
+
+
+.custom-select {
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+
+
+
+

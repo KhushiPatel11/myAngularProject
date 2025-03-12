@@ -12,8 +12,8 @@
             <form (ngSubmit)="OnFormSubmitted(registrationForm)" #registrationForm="ngForm">
               <!-- firstname -->
               <div class="form-group">
-                <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstname" [(ngModel)]="firstName"
-                  required #fname="ngModel">
+                <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstname"
+                  [(ngModel)]="firstName" required #fname="ngModel">
 
                 <!-- custom validation -->
                 <div>
@@ -24,8 +24,8 @@
 
               <!-- lastname -->
               <div class="form-group">
-                <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastname" [(ngModel)]="lastName"
-                  required #lname="ngModel">
+                <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastname"
+                  [(ngModel)]="lastName" required #lname="ngModel">
 
                 <!-- custom validation -->
                 <div>
@@ -36,8 +36,8 @@
 
               <!-- email -->
               <div class="form-group">
-                <input type="email" class="form-control" id="email" placeholder="Email" name="email" [(ngModel)]="email" required
-                  email #myEmail="ngModel">
+                <input type="email" class="form-control" id="email" placeholder="Email" name="email" [(ngModel)]="email"
+                  required email #myEmail="ngModel">
 
                 <!-- custom validation -->
                 <div>
@@ -46,10 +46,12 @@
                 </div>
               </div>
 
+              <!-- Date of birth -->
               <div class="form-group">
                 <input type="date" class="form-control" id="dob" placeholder="Date of Birth" name="dob" ngModel>
               </div>
 
+              <!-- Gender -->
               <div class="form-group">
                 <label class="text-black gender">Gender:</label>
                 <div class="form-check form-check-inline" *ngFor="let gen of genders">
@@ -58,26 +60,51 @@
                 </div>
               </div>
 
-              <div class="form-group">
-                <input type="text" class="form-control" id="address" placeholder="Address" name="address" ngModel>
-              </div>
+              <!-- Address related field -->
+              <div class="form-group" ngModelGroup="address" #addr="ngModelGroup">
+                <!-- Address -->
+                <div class="form-group">
+                  <input type="text" class="form-control" id="address" placeholder="Address" name="address" ngModel
+                    required>
+                </div>
 
-              <div class="form-group">
-                <input type="text" class="form-control" id="country" placeholder="Country" name="country" ngModel>
-              </div>
+                <!-- Country -->
+                <div class="form-group">
+                  <select name="country" class="form-control custom-select" ngModel required >
+                    <option value="" disabled selected>Country</option>
+                    <option>India</option>
+                    <option>America</option>
+                    <option>Japan</option>
+                    <option>Nepal</option>
+                    <option>Other</option>
+                  </select>
+                </div>                
 
-              <div class="form-group">
-                <input type="text" class="form-control" id="city" placeholder="City" name="city" ngModel>
-              </div>
+                <!-- City -->
+                <div class="form-group" >
+                  <select name="city" class="form-control custom-select" ngModel required>
+                    <option value="" disabled selected>City</option>
+                    <option>Ahmedabad</option>
+                    <option>New York</option>
+                    <option>Tokyo</option>
+                    <option>Pokhara</option>
+                    <option>Other</option>
+                  </select>
+                </div>
 
-              <div class="form-group">
-                <input type="text" class="form-control" id="region" placeholder="Region" name="region" ngModel>
-              </div>
+                <!-- Region -->
+                <div class="form-group">
+                  <input type="text" class="form-control" id="region" placeholder="Region" name="region" ngModel>
+                </div>
 
-              <div class="form-group">
-                <input type="text" class="form-control" id="postalCode" placeholder="Postal Code" name="postal" ngModel>
+                <!-- PostalCode -->
+                <div class="form-group">
+                  <input type="text" class="form-control" id="postalCode" placeholder="Postal Code" name="postal"
+                    ngModel required>
+                </div>
               </div>
-
+              <small *ngIf="addr.invalid && addr.touched">*Some of the address field does not contain a valid value.</small>
+              <!-- SubmitButton -->
               <div class="form-group text-center">
                 <button type="submit" class="btn btn-primary btn-block"
                   [disabled]="!registrationForm.valid">Submit</button>
