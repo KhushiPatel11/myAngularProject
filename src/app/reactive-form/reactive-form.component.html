@@ -11,13 +11,15 @@
                 <!-- first name -->
                 <div class="form-group">
                   <input type="text" class="form-control" id="firstName" placeholder="First Name" formControlName="firstname" required>
-                  <small *ngIf="reactiveForm.get('firstname').invalid && reactiveForm.get('firstname').touched">*First name is a required field.</small>
+                  <small *ngIf="reactiveForm.get('firstname').errors?.['required'] && reactiveForm.get('firstname').touched">*First name is a required field.</small>
+                  <small *ngIf="reactiveForm.get('firstname').errors?.['noSpaceAllowed'] && reactiveForm.get('firstname').touched">*No space is allwoed for firstname.</small>
                 </div>
 
                 <!-- last name  -->
                 <div class="form-group">
                   <input type="text" class="form-control" id="lastName" placeholder="Last Name" formControlName="lastname" required>
-                  <small *ngIf="reactiveForm.get('lastname').invalid && reactiveForm.get('lastname').touched">*Last name is a required field.</small>
+                  <small *ngIf="reactiveForm.get('lastname').errors?.['required'] && reactiveForm.get('lastname').touched">*Last name is a required field.</small>
+                  <small *ngIf="reactiveForm.get('lastname').errors?.['noSpaceAllowed'] && reactiveForm.get('lastname').touched">*No space is allowed for lastname.</small>
                 </div>
 
                 <!-- email -->
@@ -97,14 +99,51 @@
                 <div class="form-group" formArrayName="skills">
                   <div class="column" *ngFor="let control of reactiveForm.get('skills')['controls']; let i =index">
                     <input type="text" placeholder="Add Skill..." [formControlName]="i" class="form-control">
+                    <!-- Delete New skills -->
                     <button type="button" class="btn-add-skills" (click)="DeleteSkills(i)">Delete</button>
                   </div>
                 </div>
-                <!-- New Skills Added -->
+                <!-- Add new skills -->
                 <button type="button" class="btn-add-skills" (click)="AddSkills()">Add Skills</button>
+
+                <!-- experience -->
+                 <div class="input-box" formArrayName="experience">
+                  <div class="experience" *ngFor="let exp of reactiveForm.get('experience')['controls']; let i = index" [formGroupName]="i">
+                    <!-- Company Name -->
+                    <label>Experience {{ i + 1 }}</label>
+                    <input type="text" class="form-control" placeholder="Company Name" formControlName="company">
+
+                    <!-- Position Dropdown -->
+                    <div class="form-group d-flex">
+                      <div class="select-box custom-select">
+                        <select class="form-control select" formControlName="position">
+                          <option hidden>Position</option>
+                          <option >Sr. Developer</option>
+                          <option >Jr. Developer</option>
+                          <option >Software Developer</option>
+                          <option >Team Lead</option>
+                        </select>
+                      </div>
+                      <!-- Experience in numbers -->
+                      <input type="number"  class="form-control" placeholder="experience" formControlName="totalExp">
+                    </div>
+
+                    <!-- Start & End Date -->
+                    <div class="form-group d-flex">
+                      <input type="date" class="form-control" placeholder="Start Date" formControlName="start">
+                      <input type="date" class="form-control" placeholder="End Date" formControlName="end">
+                    </div>
+                    <!-- Delete Experience -->
+                    <button type="button" class="btn-add-skills" (click)="DeleteExperience(i)">Delete Experience</button>
+                  </div>
+                 </div>
+
+                 <!-- Add Experience -->
+                  <button type="button" class="btn-add-skills mt-3 mb-3" (click)="AddExperience()">Add Experience</button>
                 
                 <!-- submit button -->
                 <div class="form-group text-center">
+                  <!-- [disabled]="!reactiveForm.valid" -->
                   <button type="submit" class="btn btn-primary btn-block" >Submit</button>
                 </div>
               </form>

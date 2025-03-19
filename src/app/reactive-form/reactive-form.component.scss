@@ -1,19 +1,24 @@
 .background-image {
-    background-image: linear-gradient(rgba(170, 172, 175, 0.7), rgba(4, 9, 30, .7)), url('/assets/regs.jpg');
+    background-image: linear-gradient(rgba(170, 172, 175, 0.7), rgba(4, 9, 30, .7)), url('/assets/regi.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; 
+    overflow-y: auto; 
 }
+
 
 .form-container {
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     padding: 2rem;
     border-radius: 15px;
+    // max-height: 80vh;
+    // overflow-y: auto;
 }
+
 
 h2 {
     font-family: 'Roboto', sans-serif;
@@ -67,23 +72,23 @@ input:focus {
     }
 }
 
-.reactive{
+.reactive {
     margin-top: -9%;
 }
 
-.register{
+.register {
     margin-top: -3%;
 }
 
-input.ng-invalid.ng-touched{
+input.ng-invalid.ng-touched {
     border: red 2px solid;
 }
 
-select.ng-invalid.ng-touched{
+select.ng-invalid.ng-touched {
     border: red 2px solid;
 }
 
-small{
+small {
     color: red;
     font-weight: bold;
 }
@@ -96,7 +101,7 @@ small{
 
 .form-group input {
     flex: 1;
-    margin-right: 10px; /* Space between input and delete button */
+    margin-right: 10px;
 }
 
 .btn-delete-skills {
@@ -122,4 +127,27 @@ small{
 
 .btn-add-skills:hover {
     background-color: #0056b3;
+}
+
+.experience {
+    padding: 20px 10px;
+    border-radius: 5px;
+    border: #bcbcbc 2px solid;
+    margin-top: 10px;
+}
+
+.experience :where(input, .select-box) {
+    margin-top: 15px;
+}
+
+.custom-select{
+    margin-right: 2rem;
+}
+
+.select{
+    margin-right: 5rem;
+}
+
+.gender{
+    margin-right: 30px;
 }
