@@ -74,3 +74,52 @@ input:focus {
 .register{
     margin-top: -3%;
 }
+
+input.ng-invalid.ng-touched{
+    border: red 2px solid;
+}
+
+select.ng-invalid.ng-touched{
+    border: red 2px solid;
+}
+
+small{
+    color: red;
+    font-weight: bold;
+}
+
+.column {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-group input {
+    flex: 1;
+    margin-right: 10px; /* Space between input and delete button */
+}
+
+.btn-delete-skills {
+    background-color: #e74c3c;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-delete-skills:hover {
+    background-color: #c0392b;
+}
+
+.btn-add-skills {
+    padding: 7px 15px;
+    border-radius: 5px;
+    background: #007bff;
+    border: none;
+    color: white;
+}
+
+.btn-add-skills:hover {
+    background-color: #0056b3;
+}
