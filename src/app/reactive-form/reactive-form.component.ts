@@ -10,6 +10,7 @@ import { customValidators } from '../Validators/noSpaceAllowed.validator'
 export class ReactiveFormComponent implements OnInit{
 
   reactiveForm: FormGroup;
+  formdata: any ={};
   
   ngOnInit(): void {
     this.reactiveForm = new FormGroup({
@@ -33,14 +34,21 @@ export class ReactiveFormComponent implements OnInit{
      ])
     })
 
-    this.reactiveForm.get('firstname').valueChanges.subscribe((value) => {
-      console.log(value);
+    // this.reactiveForm.get('firstname').valueChanges.subscribe((value) => {
+    //   console.log(value);
+    // })
+
+    this.reactiveForm.get('email').statusChanges.subscribe((status) => {
+      console.log(status);
     })
   }
 
   OnFormSubmitted(){
-    console.log(this.reactiveForm)
-    alert("Form is Submitted")
+    console.log(this.reactiveForm.value);
+    alert("Form is Submitted");
+
+    this.formdata = this.reactiveForm.value;
+    this.reactiveForm.reset();
   }
   
   AddSkills(){

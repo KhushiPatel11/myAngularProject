@@ -17,3 +17,4 @@ export class ProductListTdbComponent {
   inStock = true;
   
 }
+ 

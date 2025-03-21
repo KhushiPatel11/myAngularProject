@@ -144,7 +144,7 @@
                 <!-- submit button -->
                 <div class="form-group text-center">
                   <!-- [disabled]="!reactiveForm.valid" -->
-                  <button type="submit" class="btn btn-primary btn-block" >Submit</button>
+                  <button type="submit" class="btn btn-primary btn-block">Submit</button>
                 </div>
               </form>
             </div>
@@ -152,4 +152,75 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Table -->
+  <div class="table-container mt-5">
+    <h3 class="text-center">User Information</h3>
+    <table class="responsive-table">
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>First Name</td>
+          <td>{{ formdata.firstname }}</td>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <td>{{ formdata.lastname }}</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>{{ formdata.email }}</td>
+        </tr>
+        <tr>
+          <td>Date of Birth</td>
+          <td>{{ formdata.dob }}</td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td>{{ formdata.gender }}</td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td>{{ formdata.allfields?.address }}</td>
+        </tr>
+        <tr>
+          <td>Country</td>
+          <td>{{ formdata.allfields?.country }}</td>
+        </tr>
+        <tr>
+          <td>City</td>
+          <td>{{ formdata.allfields?.city }}</td>
+        </tr>
+        <tr>
+          <td>Region</td>
+          <td>{{ formdata.allfields?.region }}</td>
+        </tr>
+        <tr>
+          <td>Postal Code</td>
+          <td>{{ formdata.allfields?.postalcode }}</td>
+        </tr>
+        <tr>
+          <td>Skills</td>
+          <td>{{ formdata.skills }}</td>
+        </tr>
+        <tr *ngFor="let exp of formdata.experience">
+          <td>Experience</td>
+          <td>
+            <ul>
+              <li><strong>Company:</strong> {{ exp.company }}</li>
+              <li><strong>Position:</strong> {{ exp.position }}</li>
+              <li><strong>Total Experience:</strong> {{ exp.totalExp }} years</li>
+              <li><strong>Start Date:</strong> {{ exp.start | date }}</li>
+              <li><strong>End Date:</strong> {{ exp.end | date }}</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>

@@ -6,7 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start; 
-    overflow-y: auto; 
+    // overflow-y: auto; 
 }
 
 
@@ -15,8 +15,8 @@
     backdrop-filter: blur(10px);
     padding: 2rem;
     border-radius: 15px;
-    // max-height: 80vh;
-    // overflow-y: auto;
+        max-height: 80vh;
+        overflow-y: auto;
 }
 
 
@@ -151,3 +151,88 @@ small {
 .gender{
     margin-right: 30px;
 }
+
+
+// Table
+/* Style for the table container */
+.table-container {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  /* Table styling */
+  table.responsive-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  table.responsive-table th,
+  table.responsive-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  table.responsive-table th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+  
+  table.responsive-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  table.responsive-table tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  table.responsive-table td {
+    word-wrap: break-word;
+  }
+  
+  /* Make table responsive on smaller screens */
+  @media (max-width: 768px) {
+    table.responsive-table th, table.responsive-table td {
+      padding: 8px;
+    }
+    
+    table.responsive-table {
+      font-size: 14px;
+    }
+    
+    .table-container {
+      padding: 10px;
+    }
+    
+    table.responsive-table td {
+      display: block;
+      text-align: right;
+      padding-left: 50%;
+      position: relative;
+    }
+  
+    table.responsive-table td:before {
+      content: attr(data-label);
+      position: absolute;
+      left: 10px;
+      font-weight: bold;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .table-container {
+      padding: 8px;
+    }
+  
+    table.responsive-table th, table.responsive-table td {
+      font-size: 12px;
+      padding: 6px;
+    }
+  }
+  
